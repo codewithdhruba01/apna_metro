@@ -108,24 +108,24 @@ export const Hero: React.FC = () => {
   const activeRoute = demoRoutes.find((r) => r.id === selectedDemoId) || demoRoutes[0];
 
   return (
-    <section className="relative pt-16 sm:pt-24 pb-16 flex flex-col items-center justify-center text-center px-4 overflow-hidden">
+    <section className="relative pt-14 sm:pt-20 pb-12 flex flex-col items-center justify-center text-center px-4 overflow-hidden">
       {/* 1. ClearBG-style Centered Titles */}
-      <div className="max-w-3xl mx-auto space-y-4 mb-8">
-        <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-zinc-950 dark:text-white leading-[1.15]">
+      <div className="max-w-2xl mx-auto space-y-3.5 mb-6">
+        <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-950 dark:text-white leading-[1.15]">
           Navigate your city.
           <br />
           Find your fastest route.
         </h1>
 
-        <p className="text-sm sm:text-base text-zinc-500 dark:text-zinc-400 max-w-xl mx-auto font-normal leading-relaxed">
+        <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 max-w-md mx-auto font-normal leading-relaxed">
           Explore metro maps, discover shortest paths, and plan your journey across Delhi, Kolkata, and Chennai in seconds.
         </p>
 
         {/* Pill CTA button (exactly like ClearBG "Make it transparent") */}
-        <div className="pt-2">
+        <div className="pt-1">
           <Link
             to={activeRoute.link}
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-zinc-900 text-white dark:bg-white dark:text-black font-semibold text-xs uppercase tracking-wider shadow-sm hover:opacity-90 transition-all hover:scale-105 active:scale-95"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-zinc-900 text-white dark:bg-white dark:text-black font-semibold text-xs uppercase tracking-wider shadow-sm hover:opacity-90 transition-all hover:scale-105 active:scale-95"
           >
             <span>Plan your journey</span>
           </Link>
@@ -133,12 +133,12 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* 2. The Hero Showcase Mock Card (matching ClearBG) */}
-      <div className="w-full max-w-4xl mx-auto mt-4">
+      <div className="w-full max-w-2xl mx-auto mt-2">
         {/* Outer glowing frame container with purple/indigo aura */}
-        <div className="relative p-2 sm:p-3 rounded-3xl bg-gradient-to-tr from-purple-600/30 via-indigo-600/20 to-purple-800/30 dark:from-purple-900/40 dark:via-indigo-950/30 dark:to-violet-900/40 shadow-2xl backdrop-blur-2xl border border-purple-500/20 dark:border-purple-500/10">
+        <div className="relative p-2 sm:p-2.5 rounded-3xl bg-gradient-to-tr from-purple-600/30 via-indigo-600/20 to-purple-800/30 dark:from-purple-900/40 dark:via-indigo-950/30 dark:to-violet-900/40 shadow-2xl backdrop-blur-2xl border border-purple-500/20 dark:border-purple-500/10">
           
           {/* Inner Mock Card Surface */}
-          <div className="rounded-2xl bg-zinc-950 text-white border border-zinc-800/90 p-5 sm:p-8 overflow-hidden relative">
+          <div className="rounded-2xl bg-zinc-950 text-white border border-zinc-800/90 p-4 sm:p-6 overflow-hidden relative">
             
             {/* Top Interactive City Tabs inside card */}
             <div className="flex flex-wrap items-center justify-between gap-3 pb-5 mb-6 border-b border-zinc-800/80">
@@ -241,7 +241,7 @@ export const Hero: React.FC = () => {
                               />
                               <span>{st}</span>
                             </span>
-                            {i < segment.stations.length - 1 && (
+                            {i !== segment.stations.length - 1 && (
                               <ArrowRight className="w-3 h-3 text-zinc-600 shrink-0" />
                             )}
                           </div>

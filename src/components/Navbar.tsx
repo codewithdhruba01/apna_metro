@@ -42,7 +42,7 @@ export const Navbar: React.FC = () => {
               <NavLink
                 key={item.path}
                 to={item.path}
-                className={`text-xs uppercase tracking-wider font-medium transition-colors ${
+                className={`text-xs tracking-wider font-medium transition-colors ${
                   isActive
                     ? 'text-zinc-950 dark:text-white font-semibold'
                     : 'text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white'

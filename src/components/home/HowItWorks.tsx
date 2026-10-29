@@ -20,7 +20,7 @@ const steps = [
 
 export const HowItWorks: React.FC = () => {
   return (
-    <section className="max-w-5xl mx-auto px-5 sm:px-8 py-16 sm:py-20 border-t border-zinc-200 dark:border-zinc-900">
+    <section className="max-w-5xl mx-auto px-5 sm:px-8 pt-12 sm:pt-14 pb-6 sm:pb-8 border-t border-zinc-200 dark:border-zinc-900">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 text-left">
         {steps.map((item) => (
           <div key={item.step} className="space-y-1.5">
