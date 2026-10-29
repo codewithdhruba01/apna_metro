@@ -5,7 +5,7 @@ import { TrainFront } from 'lucide-react';
 export const Footer: React.FC = () => {
   return (
     <footer className="w-full border-t border-zinc-200 dark:border-zinc-900 bg-white dark:bg-black transition-colors duration-300 py-8 mt-24">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div className="max-w-5xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
         {/* Left: Brand */}
         <Link to="/" className="flex items-center gap-2 group">
           <div className="flex items-center justify-center w-6 h-6 rounded bg-zinc-900 text-white dark:bg-white dark:text-black">
