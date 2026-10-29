@@ -125,7 +125,7 @@ export const Hero: React.FC = () => {
         <div className="pt-1">
           <Link
             to={activeRoute.link}
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-zinc-900 text-white dark:bg-white dark:text-black font-semibold text-xs uppercase tracking-wider shadow-sm hover:opacity-90 transition-all hover:scale-105 active:scale-95"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-zinc-200 dark:text-black font-semibold text-xs tracking-wider shadow-sm transition-colors transform-none hover:transform-none active:transform-none select-none"
           >
             <span>Plan your journey</span>
           </Link>
@@ -276,12 +276,15 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Bar below Mock Card (Matching ClearBG: "This is the whole image. Try it." + "Remove BG" button) */}
-        <div className="mt-4 flex items-center justify-between px-2 text-left">
+        {/* Bottom Bar below Mock Card */}
+        <div className="mt-4 flex items-center justify-between px-1">
+          <p className="text-xs text-zinc-500 dark:text-zinc-400 text-left hidden sm:block">
+            This is a live route preview. Try exploring the full network.
+          </p>
 
           <Link
             to={activeRoute.link}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-zinc-200 dark:text-black text-xs font-semibold transition-all hover:scale-105 active:scale-95 shadow-sm"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-zinc-200 dark:text-black text-xs font-semibold transition-colors shadow-sm ml-auto transform-none hover:transform-none active:transform-none select-none"
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>Open {activeRoute.city} Map</span>

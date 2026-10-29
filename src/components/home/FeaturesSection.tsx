@@ -3,10 +3,7 @@ import { motion } from 'framer-motion';
 import {
   Map,
   Zap,
-  Search,
-  GitBranch,
-  Moon,
-  Smartphone
+  GitBranch
 } from 'lucide-react';
 
 const features = [
@@ -23,28 +20,10 @@ const features = [
       'Shortest path calculation powered by BFS graph traversal, minimizing both station hops and transfers.',
   },
   {
-    icon: <Search className="w-5 h-5 text-zinc-400" />,
-    title: 'Station Selection',
-    description:
-      'Instant autocomplete station search with keyboard navigation and line indicators.',
-  },
-  {
     icon: <GitBranch className="w-5 h-5 text-zinc-400" />,
     title: 'Route Visualization',
     description:
       'Readable vertical journey timeline detailing boarding stations, intermediate stops, and transfer notices.',
-  },
-  {
-    icon: <Moon className="w-5 h-5 text-zinc-400" />,
-    title: 'Dark and Light Mode',
-    description:
-      'Seamless theme switching with persistent storage and system preference detection.',
-  },
-  {
-    icon: <Smartphone className="w-5 h-5 text-zinc-400" />,
-    title: 'Mobile Experience',
-    description:
-      'Touch controls, pinch-to-zoom support, and an ergonomic view toggle tailored for mobile commuters.',
   },
 ];
 
