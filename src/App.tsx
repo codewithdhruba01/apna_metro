@@ -15,7 +15,7 @@ export const App: React.FC = () => {
     <ThemeProvider>
       <BrowserRouter>
         <ScrollToTop />
-        <div className="flex flex-col min-h-screen bg-white text-zinc-900 dark:bg-black dark:text-zinc-100 transition-colors duration-300">
+        <div className="flex flex-col min-h-screen bg-white text-zinc-900 dark:bg-black dark:text-zinc-100 transition-colors duration-150">
           <Navbar />
           <main className="flex-1">
             <Routes>
@@ -34,4 +34,3 @@ export const App: React.FC = () => {
 };
 
 export default App;
-

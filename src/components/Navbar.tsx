@@ -18,7 +18,7 @@ export const Navbar: React.FC = () => {
   const closeMobileMenu = () => setMobileMenuOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full transition-all duration-300 bg-white/70 dark:bg-black/75 backdrop-blur-md border-b border-zinc-200/50 dark:border-zinc-900/80">
+    <header className="sticky top-0 z-50 w-full transition-colors duration-150 bg-white/70 dark:bg-black/75 backdrop-blur-md border-b border-zinc-200/50 dark:border-zinc-900/80">
       <div className="max-w-5xl mx-auto px-5 sm:px-8 py-3.5 sm:py-4 flex items-center justify-between">
         {/* Left: Brand Logo (Static, no hover scale effect) */}
         <Link

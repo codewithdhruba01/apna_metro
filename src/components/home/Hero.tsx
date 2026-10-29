@@ -5,7 +5,6 @@ import {
   TrainFront,
   ArrowRight,
   GitMerge,
-  Sparkles,
   MapPin,
   CheckCircle2
 } from 'lucide-react';
@@ -111,13 +110,13 @@ export const Hero: React.FC = () => {
     <section className="relative pt-14 sm:pt-20 pb-12 flex flex-col items-center justify-center text-center px-4 overflow-hidden">
       {/* 1. ClearBG-style Centered Titles */}
       <div className="max-w-2xl mx-auto space-y-3.5 mb-6">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl leading-tight font-medium tracking-tight text-zinc-950 dark:text-white mb-5">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl leading-tight font-medium tracking-tight text-zinc-950 dark:text-white mb-5 transition-colors duration-150">
           Navigate your city.
           <br />
           Find your fastest route.
         </h1>
 
-        <p className="text-sm sm:text-base text-zinc-500 dark:text-zinc-400 max-w-md mx-auto font-normal leading-relaxed mb-6">
+        <p className="text-sm sm:text-base text-zinc-500 dark:text-zinc-400 max-w-md mx-auto font-normal leading-relaxed mb-6 transition-colors duration-150">
           Explore metro maps, discover shortest paths, and plan your journey across Delhi, Kolkata, and Chennai in seconds.
         </p>
 
@@ -276,15 +275,11 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Bar below Mock Card */}
-        <div className="mt-4 flex items-center justify-between px-1">
-          <p className="text-xs text-zinc-500 dark:text-zinc-400 text-left hidden sm:block">
-            This is a live route preview. Try exploring the full network.
-          </p>
-
+        {/* Bottom Bar below Mock Card (Clean Right-Aligned Button) */}
+        <div className="mt-4 flex justify-end px-1">
           <Link
             to={activeRoute.link}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-zinc-200 dark:text-black text-xs font-semibold transition-colors shadow-sm ml-auto transform-none hover:transform-none active:transform-none select-none"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-zinc-200 dark:text-black text-xs font-semibold transition-colors shadow-sm transform-none hover:transform-none active:transform-none select-none"
           >
             <span>Open {activeRoute.city} Map</span>
             <ArrowRight className="w-3.5 h-3.5" />
