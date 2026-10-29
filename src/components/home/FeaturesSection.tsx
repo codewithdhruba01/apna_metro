@@ -30,14 +30,6 @@ const features = [
 export const FeaturesSection: React.FC = () => {
   return (
     <section className="max-w-5xl mx-auto px-5 sm:px-8 pt-6 sm:pt-8 pb-16 sm:pb-20 border-t border-zinc-200 dark:border-zinc-900 text-left">
-      <div className="space-y-1.5 mb-8">
-        <span className="font-serif font-semibold text-xs tracking-wider text-zinc-400 dark:text-zinc-500">
-          Platform Capabilities
-        </span>
-        <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white tracking-tight">
-          Everything you need for a smarter journey
-        </h2>
-      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {features.map((feature, idx) => (
@@ -53,7 +45,7 @@ export const FeaturesSection: React.FC = () => {
               {feature.icon}
             </div>
 
-            <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-1.5">
+            <h3 className="text-sm font-medium text-zinc-900 dark:text-zinc-100 mb-1.5">
               {feature.title}
             </h3>
 

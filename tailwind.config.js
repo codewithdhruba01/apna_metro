@@ -8,7 +8,20 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Segoe UI"', '-apple-system', 'BlinkMacSystemFont', 'Roboto', '"Helvetica Neue"', 'sans-serif'],
+        sans: [
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          'Roboto',
+          '"Helvetica Neue"',
+          '"Noto Sans"',
+          'Arial',
+          'sans-serif',
+          '"Apple Color Emoji"',
+          '"Segoe UI Emoji"',
+          '"Segoe UI Symbol"',
+          '"Noto Color Emoji"'
+        ],
       },
       colors: {
         metro: {
@@ -40,4 +53,3 @@ export default {
   },
   plugins: [],
 }
-

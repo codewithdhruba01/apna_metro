@@ -29,7 +29,7 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-zinc-900 text-white dark:bg-white dark:text-black">
             <TrainFront className="w-4 h-4" />
           </div>
-          <span className="font-bold text-base sm:text-lg tracking-tight text-zinc-900 dark:text-white">
+          <span className="font-medium text-base sm:text-lg tracking-tight text-zinc-900 dark:text-white">
             MetroMap
           </span>
         </Link>

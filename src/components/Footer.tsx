@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
           <div className="flex items-center justify-center w-6 h-6 rounded bg-zinc-900 text-white dark:bg-white dark:text-black">
             <TrainFront className="w-3.5 h-3.5" />
           </div>
-          <span className="font-bold text-sm tracking-tight text-zinc-900 dark:text-white">
+          <span className="font-medium text-sm tracking-tight text-zinc-900 dark:text-white">
             MetroMap
           </span>
         </Link>

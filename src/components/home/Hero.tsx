@@ -111,13 +111,13 @@ export const Hero: React.FC = () => {
     <section className="relative pt-14 sm:pt-20 pb-12 flex flex-col items-center justify-center text-center px-4 overflow-hidden">
       {/* 1. ClearBG-style Centered Titles */}
       <div className="max-w-2xl mx-auto space-y-3.5 mb-6">
-        <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-950 dark:text-white leading-[1.15]">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl leading-tight font-medium tracking-tight text-zinc-950 dark:text-white mb-5">
           Navigate your city.
           <br />
           Find your fastest route.
         </h1>
 
-        <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 max-w-md mx-auto font-normal leading-relaxed">
+        <p className="text-sm sm:text-base text-zinc-500 dark:text-zinc-400 max-w-md mx-auto font-normal leading-relaxed mb-6">
           Explore metro maps, discover shortest paths, and plan your journey across Delhi, Kolkata, and Chennai in seconds.
         </p>
 
@@ -125,7 +125,7 @@ export const Hero: React.FC = () => {
         <div className="pt-1">
           <Link
             to={activeRoute.link}
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-zinc-200 dark:text-black font-semibold text-xs tracking-wider shadow-sm transition-colors transform-none hover:transform-none active:transform-none select-none"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-zinc-200 dark:text-black font-medium text-sm transition-colors shadow-sm"
           >
             <span>Plan your journey</span>
           </Link>
