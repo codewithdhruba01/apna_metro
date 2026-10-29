@@ -277,7 +277,7 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Bottom Bar below Mock Card */}
-        <div className="mt-4 flex items-center justify-between px-1">
+        <div className="mt-4 flex justify-end px-1">
           <p className="text-xs text-zinc-500 dark:text-zinc-400 text-left hidden sm:block">
             This is a live route preview. Try exploring the full network.
           </p>
@@ -286,7 +286,6 @@ export const Hero: React.FC = () => {
             to={activeRoute.link}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-zinc-200 dark:text-black text-xs font-semibold transition-colors shadow-sm ml-auto transform-none hover:transform-none active:transform-none select-none"
           >
-            <Sparkles className="w-3.5 h-3.5" />
             <span>Open {activeRoute.city} Map</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>

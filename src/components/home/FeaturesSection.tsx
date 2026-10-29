@@ -49,7 +49,7 @@ export const FeaturesSection: React.FC = () => {
               {feature.title}
             </h3>
 
-            <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+            <p className="text-xs text-neutral-500 dark:text-neutral-500 leading-relaxed">
               {feature.description}
             </p>
           </motion.div>
