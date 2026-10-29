@@ -18,14 +18,11 @@ export const MetroRouteLayout: React.FC<MetroRouteLayoutProps> = ({ network }) =
     <div className="min-h-screen py-6 sm:py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         {/* Metro Header Hero Banner */}
-        <div className="relative p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white/90 via-slate-50/80 to-blue-50/70 dark:from-slate-900/90 dark:via-slate-900/70 dark:to-blue-950/40 border border-slate-200/80 dark:border-slate-800/80 shadow-md backdrop-blur-xl overflow-hidden">
-          {/* Subtle decorative background glow */}
-          <div className="absolute -right-20 -top-20 w-80 h-80 bg-blue-500/10 dark:bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
-
+        <div className="relative p-6 sm:p-8 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-900 shadow-xs overflow-hidden">
           <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-            <div className="space-y-2 max-w-2xl">
+            <div className="space-y-2 max-w-2xl text-left">
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-100 text-blue-700 dark:bg-blue-950/70 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider bg-zinc-200/80 text-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 border border-zinc-300/60 dark:border-zinc-800">
                   {network.city} Transit
                 </span>
                 <span className="flex items-center gap-1 text-xs font-medium text-emerald-600 dark:text-emerald-400">
@@ -34,33 +31,33 @@ export const MetroRouteLayout: React.FC<MetroRouteLayoutProps> = ({ network }) =
                 </span>
               </div>
 
-              <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+              <h1 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white tracking-tight">
                 {network.name}
               </h1>
 
-              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
                 {network.description}
               </p>
             </div>
 
             {/* Quick Network Stats Badges */}
             <div className="flex items-center gap-3 shrink-0 flex-wrap">
-              <div className="px-4 py-3 rounded-2xl bg-white/80 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/60 shadow-xs">
-                <div className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
-                  Active Lines
+              <div className="px-4 py-3 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-2xs">
+                <div className="text-[10px] font-mono text-zinc-400 dark:text-zinc-500 uppercase">
+                  Lines
                 </div>
-                <div className="text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-1.5">
-                  <Train className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                <div className="text-lg font-bold text-zinc-900 dark:text-white flex items-center gap-1.5">
+                  <Train className="w-4 h-4 text-zinc-500 dark:text-zinc-400" />
                   <span>{totalLinesCount}</span>
                 </div>
               </div>
 
-              <div className="px-4 py-3 rounded-2xl bg-white/80 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/60 shadow-xs">
-                <div className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
-                  Verified Stations
+              <div className="px-4 py-3 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-2xs">
+                <div className="text-[10px] font-mono text-zinc-400 dark:text-zinc-500 uppercase">
+                  Stations
                 </div>
-                <div className="text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-1.5">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-500" />
+                <div className="text-lg font-bold text-zinc-900 dark:text-white flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                   <span>{totalStationsCount}</span>
                 </div>
               </div>
@@ -68,25 +65,25 @@ export const MetroRouteLayout: React.FC<MetroRouteLayoutProps> = ({ network }) =
           </div>
 
           {/* Network Lines Color Pills */}
-          <div className="mt-6 pt-5 border-t border-slate-200/60 dark:border-slate-800/80">
-            <div className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">
-              Network Lines & Corridors
+          <div className="mt-6 pt-5 border-t border-zinc-200 dark:border-zinc-900 text-left">
+            <div className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-500 mb-2">
+              Network Lines
             </div>
             <div className="flex flex-wrap gap-2">
               {network.lines.map((line) => (
                 <div
                   key={line.id}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/80 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/60 shadow-2xs text-xs"
+                  className="flex items-center gap-2 px-2.5 py-1 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs"
                 >
                   <span
                     style={{ backgroundColor: line.color }}
-                    className="w-2.5 h-2.5 rounded-full inline-block shadow-xs"
+                    className="w-2 h-2 rounded-full inline-block"
                   />
-                  <span className="font-bold text-slate-800 dark:text-slate-200">
+                  <span className="font-medium text-zinc-800 dark:text-zinc-200">
                     {line.name}
                   </span>
-                  <span className="text-slate-400 dark:text-slate-500 font-medium text-[11px]">
-                    ({line.stations.length} stops)
+                  <span className="text-zinc-400 dark:text-zinc-500 font-mono text-[11px]">
+                    ({line.stations.length})
                   </span>
                 </div>
               ))}
