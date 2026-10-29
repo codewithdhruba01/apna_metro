@@ -277,7 +277,7 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Bottom Bar below Mock Card */}
-        <div className="mt-4 flex justify-end px-1">
+        <div className="mt-4 flex items-center justify-between px-1">
           <p className="text-xs text-zinc-500 dark:text-zinc-400 text-left hidden sm:block">
             This is a live route preview. Try exploring the full network.
           </p>

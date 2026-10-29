@@ -27,10 +27,10 @@ export const HowItWorks: React.FC = () => {
             <div className="text-zinc-500 text-sm mb-2 font-medium">
               {item.step}
             </div>
-            <h3 className="text-base font-medium text-zinc-950 dark:text-white mb-1.5">
+            <h3 className="text-base font-semibold text-zinc-950 dark:text-white mb-2 tracking-tight">
               {item.title}
             </h3>
-            <p className="text-sm text-neutral-500 dark:text-neutral-500 leading-relaxed max-w-xs">
+            <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-xs font-normal">
               {item.description}
             </p>
           </div>
