@@ -12,13 +12,15 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setThemeState] = useState<Theme>(() => {
-    // Check localStorage first
     if (typeof window !== 'undefined') {
+      // If index.html head script already initialized 'dark' class
+      if (document.documentElement.classList.contains('dark')) {
+        return 'dark';
+      }
       const stored = localStorage.getItem('metromap-theme') as Theme;
       if (stored === 'light' || stored === 'dark') {
         return stored;
       }
-      // System preference
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         return 'dark';
       }
@@ -30,8 +32,12 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const root = document.documentElement;
     if (theme === 'dark') {
       root.classList.add('dark');
+      root.style.backgroundColor = '#000000';
+      root.style.colorScheme = 'dark';
     } else {
       root.classList.remove('dark');
+      root.style.backgroundColor = '#ffffff';
+      root.style.colorScheme = 'light';
     }
     localStorage.setItem('metromap-theme', theme);
   }, [theme]);
@@ -70,4 +76,3 @@ export const useTheme = () => {
   }
   return context;
 };
-
