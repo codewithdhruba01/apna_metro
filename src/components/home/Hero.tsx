@@ -278,9 +278,6 @@ export const Hero: React.FC = () => {
 
         {/* Bottom Bar below Mock Card (Matching ClearBG: "This is the whole image. Try it." + "Remove BG" button) */}
         <div className="mt-4 flex items-center justify-between px-2 text-left">
-          <p className="text-xs text-zinc-500 dark:text-zinc-400">
-            This is a live route preview. Try exploring the full network map.
-          </p>
 
           <Link
             to={activeRoute.link}

@@ -52,7 +52,7 @@ export const FeaturesSection: React.FC = () => {
   return (
     <section className="max-w-5xl mx-auto px-5 sm:px-8 pt-6 sm:pt-8 pb-16 sm:pb-20 border-t border-zinc-200 dark:border-zinc-900 text-left">
       <div className="space-y-1.5 mb-8">
-        <span className="font-mono text-xs uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+        <span className="font-serif font-semibold text-xs tracking-wider text-zinc-400 dark:text-zinc-500">
           Platform Capabilities
         </span>
         <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white tracking-tight">
