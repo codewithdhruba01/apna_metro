@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight, TrainFront } from 'lucide-react';
+import { Menu, X, TrainFront } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 
 const navItems = [
@@ -20,13 +20,13 @@ export const Navbar: React.FC = () => {
   return (
     <header className="sticky top-0 z-50 w-full transition-all duration-300 bg-white/70 dark:bg-black/75 backdrop-blur-md border-b border-zinc-200/50 dark:border-zinc-900/80">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 py-3.5 sm:py-4 flex items-center justify-between">
-        {/* Left: Brand Logo */}
+        {/* Left: Brand Logo (Static, no hover scale effect) */}
         <Link
           to="/"
           onClick={closeMobileMenu}
-          className="flex items-center gap-2 group focus:outline-none"
+          className="flex items-center gap-2 focus:outline-none"
         >
-          <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-zinc-900 text-white dark:bg-white dark:text-black transition-transform duration-200 group-hover:scale-105">
+          <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-zinc-900 text-white dark:bg-white dark:text-black">
             <TrainFront className="w-4 h-4" />
           </div>
           <span className="font-bold text-base sm:text-lg tracking-tight text-zinc-900 dark:text-white">
@@ -54,7 +54,7 @@ export const Navbar: React.FC = () => {
           })}
         </nav>
 
-        {/* Right side: X icon, Theme toggle, and Text CTA with Arrow */}
+        {/* Right side: X icon & Theme toggle */}
         <div className="flex items-center gap-4 sm:gap-5">
           {/* X (Twitter) icon */}
           <a
@@ -75,15 +75,6 @@ export const Navbar: React.FC = () => {
 
           {/* Theme Toggle Button */}
           <ThemeToggle />
-
-          {/* Text CTA with arrow (Just like ClearBG "Remove background →") */}
-          <Link
-            to="/delhi-metro"
-            className="hidden sm:inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-medium text-zinc-600 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-white transition-colors group"
-          >
-            <span>Explore routes</span>
-            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-          </Link>
 
           {/* Mobile hamburger */}
           <button
@@ -132,16 +123,6 @@ export const Navbar: React.FC = () => {
                   {item.name}
                 </NavLink>
               ))}
-              <div className="pt-2 border-t border-zinc-200 dark:border-zinc-900">
-                <Link
-                  to="/delhi-metro"
-                  onClick={closeMobileMenu}
-                  className="flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold text-zinc-900 dark:text-white py-1"
-                >
-                  <span>Explore routes</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
             </div>
           </motion.div>
         )}
