@@ -2,8 +2,6 @@
 
 **MetroMap** is a responsive, production-grade transit navigation web application built for modern urban commuters in India. Inspired by clean, glassmorphic AI applications like ClearBG, it combines a minimal UI, smooth animations, authentic metro line styling, and a verified graph-based route finder for **Delhi Metro (DMRC)**, **Kolkata Metro**, and **Chennai Metro (CMRL)**.
 
----
-
 ## Features
 
 - **Multi-System Support**:
@@ -31,8 +29,6 @@
   - Mobile: Clean stacked layout with an ergonomic view switcher (`All Views` | `Route Planner` | `Metro Map`).
   - Mobile hamburger slide-down navigation.
 
----
-
 ## Technology Stack
 
 - **Framework**: [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
@@ -41,8 +37,6 @@
 - **Animations**: [Framer Motion 12](https://motion.dev/)
 - **Icons**: [Lucide React](https://lucide.dev/)
 - **Routing**: [React Router 7](https://reactrouter.com/)
-
----
 
 ## Project Architecture
 
@@ -89,8 +83,6 @@ src/
 └── main.tsx                       # Root React entry point
 ```
 
----
-
 ## Getting Started
 
 ### 1. Prerequisites
@@ -129,8 +121,6 @@ Preview the production build locally:
 npm run preview
 ```
 
----
-
 ## Metro Map Assets
 
 All map references are located in `public/assets/maps/`:
@@ -138,8 +128,6 @@ All map references are located in `public/assets/maps/`:
 - `public/assets/maps/delhi-metro-map.svg` (Official vector map)
 - `public/assets/maps/kolkata-metro-map.jpg` (Kolkata metro system map)
 - `public/assets/maps/chennai-metro-map.jpg` (Chennai metro official map)
-
----
 
 ## Data Verification & Accuracy
 
