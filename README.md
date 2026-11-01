@@ -4,7 +4,7 @@
 
 ---
 
-## ✨ Features
+## Features
 
 - **Multi-System Support**:
   - **Delhi Metro**: India's largest rapid transit network (Red, Yellow, Blue, Blue Branch, Violet, Pink, Magenta, and Airport Express lines) with major hubs like Rajiv Chowk, Kashmere Gate, Central Secretariat, Hauz Khas, and Mandi House.
@@ -33,7 +33,7 @@
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Framework**: [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
 - **Build Tool**: [Vite 6](https://vitejs.dev/)
@@ -44,7 +44,7 @@
 
 ---
 
-## 📁 Project Architecture
+## Project Architecture
 
 ```text
 src/
@@ -91,7 +91,7 @@ src/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Prerequisites
 Ensure you have **Node.js** (v18 or higher) and **npm** installed:
@@ -131,7 +131,7 @@ npm run preview
 
 ---
 
-## 🗺️ Metro Map Assets
+## Metro Map Assets
 
 All map references are located in `public/assets/maps/`:
 - `public/assets/maps/delhi-metro-map.jpg` (Official DMRC network map)
@@ -141,7 +141,7 @@ All map references are located in `public/assets/maps/`:
 
 ---
 
-## 🔒 Data Verification & Accuracy
+## Data Verification & Accuracy
 
 - Station sequences, terminal connections, and interchange points are structured strictly from verified transit maps and official operator publications (DMRC, Metro Railway Kolkata, CMRL).
 - Where transit times or live fare rates vary by ticketing mode or time of day, estimated times are not fabricated, adhering to verified topological data.
