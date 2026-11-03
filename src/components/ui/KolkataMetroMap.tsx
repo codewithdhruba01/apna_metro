@@ -216,22 +216,21 @@ export const KolkataMetroMap: React.FC<KolkataMetroMapProps> = ({
     const midX = (minX + maxX) / 2;
     const midY = (minY + maxY) / 2;
 
-    // Viewport center is (450, 690) in viewBox 0 0 900 1380
+    // Viewport center is (460, 700) in viewBox 0 0 920 1400
     setTranslate({
-      x: (450 - midX) * 0.75,
-      y: (690 - midY) * 0.75,
+      x: (460 - midX) * 0.25,
+      y: (700 - midY) * 0.25,
     });
-    setScale(1.2);
+    setScale(1.15);
   }, [routePoints]);
 
-  // Reset car position & auto-focus whenever route changes
+  // Reset car position whenever route changes (keeps map fixed and stable)
   useEffect(() => {
     if (selectedRoute && routePoints.length >= 2) {
       setProgress(0);
       setIsPlaying(true);
-      handleCenterRoute();
     }
-  }, [selectedRoute, routePoints.length, handleCenterRoute]);
+  }, [selectedRoute, routePoints.length]);
 
   // Car animation loop using requestAnimationFrame (continuous smooth travel)
   useEffect(() => {
@@ -452,12 +451,9 @@ export const KolkataMetroMap: React.FC<KolkataMetroMapProps> = ({
 
         <svg
           ref={svgRef}
-          viewBox="0 0 900 1380"
-          className="w-full h-full transition-transform duration-75"
-          style={{
-            transform: `translate(${translate.x}px, ${translate.y}px) scale(${scale})`,
-            transformOrigin: 'center center',
-          }}
+          viewBox="0 0 920 1400"
+          preserveAspectRatio="xMidYMid meet"
+          className="w-full h-full"
         >
           <defs>
             {/* Glowing filter for active selected route */}
@@ -486,8 +482,16 @@ export const KolkataMetroMap: React.FC<KolkataMetroMapProps> = ({
             </linearGradient>
           </defs>
 
-          {/* 1. River Hooghly Path */}
-          <g className="river-group">
+          {/* Master Viewport Container Group for smooth pan & zoom */}
+          <g
+            transform={`translate(${translate.x}, ${translate.y}) scale(${scale})`}
+            style={{
+              transformOrigin: '460px 700px',
+              transition: isDragging ? 'none' : 'transform 0.15s ease-out',
+            }}
+          >
+            {/* 1. River Hooghly Path */}
+            <g className="river-group">
             <path
               d="M 235 0 
                  C 225 180, 215 320, 195 480 
@@ -874,6 +878,7 @@ export const KolkataMetroMap: React.FC<KolkataMetroMapProps> = ({
               </g>
             </g>
           )}
+          </g>
         </svg>
 
         {/* 3. Station Quick Info Hover Pill */}
