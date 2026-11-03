@@ -489,13 +489,7 @@ export const KolkataMetroMap: React.FC<KolkataMetroMapProps> = ({
           }}
         />
 
-        {/* Empty state guide when no route has been searched yet */}
-        {!selectedRoute && (
-          <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10 px-4 py-2 rounded-2xl bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 shadow-md text-xs text-zinc-600 dark:text-zinc-300 flex items-center gap-2 pointer-events-none">
-            <MapPin className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-            <span>Select Starting & Destination station and click <strong>Find Fastest Route</strong></span>
-          </div>
-        )}
+
 
         <svg
           ref={svgRef}
