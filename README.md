@@ -2,9 +2,7 @@
 
 **MetroMap** is a responsive, production-grade transit navigation web application built for modern urban commuters in India. Inspired by clean, glassmorphic AI applications like ClearBG, it combines a minimal UI, smooth animations, authentic metro line styling, and a verified graph-based route finder for **Delhi Metro (DMRC)**, **Kolkata Metro**, and **Chennai Metro (CMRL)**.
 
----
-
-## ✨ Features
+## Features
 
 - **Multi-System Support**:
   - **Delhi Metro**: India's largest rapid transit network (Red, Yellow, Blue, Blue Branch, Violet, Pink, Magenta, and Airport Express lines) with major hubs like Rajiv Chowk, Kashmere Gate, Central Secretariat, Hauz Khas, and Mandi House.
@@ -31,9 +29,7 @@
   - Mobile: Clean stacked layout with an ergonomic view switcher (`All Views` | `Route Planner` | `Metro Map`).
   - Mobile hamburger slide-down navigation.
 
----
-
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Framework**: [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
 - **Build Tool**: [Vite 6](https://vitejs.dev/)
@@ -42,9 +38,7 @@
 - **Icons**: [Lucide React](https://lucide.dev/)
 - **Routing**: [React Router 7](https://reactrouter.com/)
 
----
-
-## 📁 Project Architecture
+## Project Architecture
 
 ```text
 src/
@@ -89,9 +83,7 @@ src/
 └── main.tsx                       # Root React entry point
 ```
 
----
-
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Prerequisites
 Ensure you have **Node.js** (v18 or higher) and **npm** installed:
@@ -129,9 +121,7 @@ Preview the production build locally:
 npm run preview
 ```
 
----
-
-## 🗺️ Metro Map Assets
+## Metro Map Assets
 
 All map references are located in `public/assets/maps/`:
 - `public/assets/maps/delhi-metro-map.jpg` (Official DMRC network map)
@@ -139,9 +129,7 @@ All map references are located in `public/assets/maps/`:
 - `public/assets/maps/kolkata-metro-map.jpg` (Kolkata metro system map)
 - `public/assets/maps/chennai-metro-map.jpg` (Chennai metro official map)
 
----
-
-## 🔒 Data Verification & Accuracy
+## Data Verification & Accuracy
 
 - Station sequences, terminal connections, and interchange points are structured strictly from verified transit maps and official operator publications (DMRC, Metro Railway Kolkata, CMRL).
 - Where transit times or live fare rates vary by ticketing mode or time of day, estimated times are not fabricated, adhering to verified topological data.
