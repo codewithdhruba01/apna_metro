@@ -21,6 +21,7 @@ export interface KolkataMetroMapProps {
   selectedSourceId?: string;
   selectedDestinationId?: string;
   onSelectStation?: (stationId: string, role: 'source' | 'destination') => void;
+  className?: string;
 }
 
 // 100% verified schematic coordinates for all 93 Kolkata Metro stations
@@ -147,6 +148,7 @@ export const KolkataMetroMap: React.FC<KolkataMetroMapProps> = ({
   selectedSourceId,
   selectedDestinationId,
   onSelectStation,
+  className = '',
 }) => {
   // View mode: 'route' (shows specifically the chosen route map) or 'full' (shows whole network)
   const [viewMode, setViewMode] = useState<'route' | 'full'>('route');
@@ -364,7 +366,7 @@ export const KolkataMetroMap: React.FC<KolkataMetroMapProps> = ({
   }, [selectedRoute, routePoints]);
 
   return (
-    <div className="flex flex-col w-full rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 overflow-hidden shadow-sm">
+    <div className={`flex flex-col w-full rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 overflow-hidden shadow-sm ${className}`}>
       {/* 1. Header Toolbar */}
       <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-3 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/50">
         <div className="flex items-center gap-2">
@@ -474,7 +476,7 @@ export const KolkataMetroMap: React.FC<KolkataMetroMapProps> = ({
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
         onWheel={handleWheel}
-        className={`relative w-full h-[540px] sm:h-[620px] lg:h-[700px] overflow-hidden bg-[#fafafa] dark:bg-[#000000] select-none ${
+        className={`relative w-full h-[380px] sm:h-[440px] lg:h-[480px] overflow-hidden bg-[#fafafa] dark:bg-[#000000] select-none ${
           isDragging ? 'cursor-grabbing' : 'cursor-grab'
         }`}
       >
