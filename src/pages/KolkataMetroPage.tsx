@@ -25,58 +25,36 @@ import { StationSelector } from '../components/StationSelector';
 import { findRoute } from '../utils/routeFinder';
 import { MetroRoute } from '../types/metro';
 
-const DEFAULT_SOURCE = 'howrah-maidan';
-const DEFAULT_DEST = 'salt-lake-sector-v';
-
 export const KolkataMetroPage: React.FC = () => {
-  // Pre-load landmark underwater corridor route so car runs immediately
-  const [sourceId, setSourceId] = useState<string>(DEFAULT_SOURCE);
-  const [destinationId, setDestinationId] = useState<string>(DEFAULT_DEST);
-  const [route, setRoute] = useState<MetroRoute | null>(() => {
-    return findRoute(kolkataMetroData, DEFAULT_SOURCE, DEFAULT_DEST);
-  });
+  // Initial state: empty selection, full network view until user chooses and clicks Find
+  const [sourceId, setSourceId] = useState<string>('');
+  const [destinationId, setDestinationId] = useState<string>('');
+  const [route, setRoute] = useState<MetroRoute | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState<boolean>(false);
   const [expandedSegments, setExpandedSegments] = useState<Record<number, boolean>>({});
   const [mobileTab, setMobileTab] = useState<'map' | 'planner' | 'both'>('both');
 
-  // Handle station selection from the interactive map clicks
+  // Handle station selection from interactive map clicks
   const handleMapSelectStation = (stationId: string, role: 'source' | 'destination') => {
     if (role === 'source') {
       setSourceId(stationId);
-      if (destinationId && destinationId !== stationId) {
-        const calculated = findRoute(kolkataMetroData, stationId, destinationId);
-        setRoute(calculated);
-        setError(calculated ? null : 'No direct or transfer path found between these stations.');
-      }
+      setError(null);
     } else {
       setDestinationId(stationId);
-      if (sourceId && sourceId !== stationId) {
-        const calculated = findRoute(kolkataMetroData, sourceId, stationId);
-        setRoute(calculated);
-        setError(calculated ? null : 'No direct or transfer path found between these stations.');
-      }
+      setError(null);
     }
   };
 
-  // Immediate recalculation on source selection change
+  // Station selector changes
   const handleSourceChange = (newSourceId: string) => {
     setSourceId(newSourceId);
     setError(null);
-    if (newSourceId && destinationId && newSourceId !== destinationId) {
-      const calculated = findRoute(kolkataMetroData, newSourceId, destinationId);
-      setRoute(calculated);
-    }
   };
 
-  // Immediate recalculation on destination selection change
   const handleDestinationChange = (newDestId: string) => {
     setDestinationId(newDestId);
     setError(null);
-    if (sourceId && newDestId && sourceId !== newDestId) {
-      const calculated = findRoute(kolkataMetroData, sourceId, newDestId);
-      setRoute(calculated);
-    }
   };
 
   // Swap origin and destination
@@ -85,6 +63,7 @@ export const KolkataMetroPage: React.FC = () => {
     setSourceId(destinationId);
     setDestinationId(temp);
 
+    // If route was already calculated, recalculate for swapped stations
     if (destinationId && temp) {
       if (destinationId === temp) {
         setError('Starting station and destination cannot be the same.');
@@ -97,18 +76,30 @@ export const KolkataMetroPage: React.FC = () => {
     }
   };
 
-  // Find Route handler
+  // Find Route handler: executed when user clicks "Find Fastest Route"
   const handleFindRoute = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
 
-    if (!sourceId || !destinationId) {
-      setError('Please choose both a starting station and destination.');
+    if (!sourceId && !destinationId) {
+      setError('Please select both a Starting Station and Destination Station.');
+      setRoute(null);
+      return;
+    }
+
+    if (!sourceId) {
+      setError('Please select your Starting Station.');
+      setRoute(null);
+      return;
+    }
+
+    if (!destinationId) {
+      setError('Please select your Destination Station.');
       setRoute(null);
       return;
     }
 
     if (sourceId === destinationId) {
-      setError('Origin and destination cannot be identical. Please choose two distinct stations.');
+      setError('Starting station and destination cannot be identical. Please choose two distinct stations.');
       setRoute(null);
       return;
     }
@@ -123,7 +114,7 @@ export const KolkataMetroPage: React.FC = () => {
     }
   };
 
-  // Reset planner
+  // Reset planner: clears route and returns map to full city view
   const handleReset = () => {
     setSourceId('');
     setDestinationId('');
@@ -131,7 +122,7 @@ export const KolkataMetroPage: React.FC = () => {
     setError(null);
   };
 
-  // Quick route picker
+  // Quick route picker: instantly populates and finds the route
   const handleSelectQuickRoute = (from: string, to: string) => {
     setSourceId(from);
     setDestinationId(to);
@@ -194,7 +185,7 @@ export const KolkataMetroPage: React.FC = () => {
               </h1>
 
               <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
-                Explore the complete schematic metro network map, calculate the optimal journey between any two stations, and watch the animated vehicle trace your chosen route in real-time.
+                Choose your Starting Station and Destination Station, then click Find to see that exact route map with an animated car following the journey in real-time.
               </p>
             </div>
 
@@ -291,16 +282,16 @@ export const KolkataMetroPage: React.FC = () => {
                       Plan Your Journey
                     </h2>
                     <p className="text-[11px] text-zinc-500 dark:text-zinc-400">
-                      Choose starting and destination stations
+                      Choose Starting Station & Destination Station
                     </p>
                   </div>
                 </div>
 
-                {(sourceId || destinationId) && (
+                {(sourceId || destinationId || route) && (
                   <button
                     onClick={handleReset}
                     className="p-1.5 rounded-lg text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-200/60 dark:hover:bg-zinc-900 transition-colors"
-                    title="Clear selections"
+                    title="Clear route & show full network map"
                   >
                     <RotateCcw className="w-3.5 h-3.5" />
                   </button>
@@ -312,7 +303,7 @@ export const KolkataMetroPage: React.FC = () => {
                 <div className="space-y-1.5">
                   <StationSelector
                     label="Starting Station"
-                    placeholder="Search origin (e.g. Howrah, Dakshineswar)..."
+                    placeholder="Choose starting station (e.g. Howrah, Dakshineswar)..."
                     selectedStationId={sourceId}
                     onSelectStation={handleSourceChange}
                     stations={kolkataMetroData.stations}
@@ -338,7 +329,7 @@ export const KolkataMetroPage: React.FC = () => {
                 <div className="space-y-1.5">
                   <StationSelector
                     label="Destination Station"
-                    placeholder="Search destination (e.g. Sector V, Kavi Subhash)..."
+                    placeholder="Choose destination (e.g. Salt Lake Sector V, Kavi Subhash)..."
                     selectedStationId={destinationId}
                     onSelectStation={handleDestinationChange}
                     stations={kolkataMetroData.stations}
@@ -368,7 +359,7 @@ export const KolkataMetroPage: React.FC = () => {
                   className="w-full py-2.5 px-4 rounded-full bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-zinc-200 dark:text-black font-semibold text-xs transition-colors flex items-center justify-center gap-2 shadow-xs cursor-pointer select-none"
                 >
                   <Car className="w-4 h-4 text-emerald-400 dark:text-emerald-600" />
-                  <span>Find Fastest Route & Animate Map</span>
+                  <span>Find Fastest Route & Show Map</span>
                 </button>
               </form>
 
@@ -408,7 +399,7 @@ export const KolkataMetroPage: React.FC = () => {
                   <div className="flex items-center justify-between pb-4 border-b border-zinc-200 dark:border-zinc-900">
                     <div>
                       <span className="text-[10px] uppercase font-mono tracking-wider text-emerald-600 dark:text-emerald-400 font-bold">
-                        Optimal Journey Calculated
+                        Chosen Route Map Active
                       </span>
                       <h3 className="text-base font-semibold text-zinc-950 dark:text-white flex items-center gap-2 mt-0.5">
                         <span>{route.source.name}</span>
@@ -453,7 +444,7 @@ export const KolkataMetroPage: React.FC = () => {
                   {/* Vehicle Follow Notification */}
                   <div className="p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-xs flex items-center gap-2 font-medium">
                     <Car className="w-4 h-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
-                    <span>The car is traveling along the exact stations on the map in real-time.</span>
+                    <span>The map above is now displaying your chosen route with live car navigation.</span>
                   </div>
 
                   {/* Step-by-Step Line Segments Breakdown */}
